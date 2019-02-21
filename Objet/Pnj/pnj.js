@@ -1,26 +1,10 @@
 document.getElementById("item").onclick = function() {GiveItem()};
 
-let i = 0;
+//let i;
 let PNJ = { 
     "Name":"Rahn",
     "Age":25,
-    "Item_To_Give":["Sword","Shield","Potion","Spear","Dagger","Stick"],
-}
-
-let Shop = {
-    "Item_To_Shell": [
-        {"Name":"Epee", "Physic": 15, "Magic": 8, "minLevel": 14, "available": true },
-        {"Name":"Axe", "Physic": 15, "Magic": 2, "minLevel": 8, "available": true },
-        {"Name":"Stick","Physic": 5, "Magic": 15, "minLevel": 12, "available": true },
-        {"Name":"Dagger","Physic": 5, "Magic": 5, "minLevel": 1, "available": true },
-        {"Name":"Spear", "Physic": 10, "Magic": 2, "minLevel": 5, "available": true },
-        {"Name":"Magic Wand", "Physic": 2, "Magic": 10, "minLevel": 5, "available": true }
-    ]
-}
-for(let Items in Shop){
-
-    console.log( Shop[Items] );
-
+    "Item_To_Give":["l'épée enflamée","le Bouclier du rempart","une Potion de vie","la Lance Divine","une Dague immaculé de sang","le Bâton de la vérité"],
 }
 
 for(let Perso in PNJ){
@@ -32,10 +16,26 @@ for(let Perso in PNJ){
 function GiveItem(){
 
     let longTab = PNJ.Item_To_Give.length;
-    let random = PNJ.Item_To_Give[Math.floor(Math.random()*longTab)];
-    console.log(random);
+    let random = Math.floor(Math.random()*longTab);
+    let supprimer = PNJ.Item_To_Give.splice(random,1);
 
-    if ((random == PNJ.Item_To_Give[0]) && (i == 0)){
+    if (longTab <= 0){
+
+        alert("Je n'ai plus d'objets a te proposer aventurier !")
+
+    }
+    else{
+
+    alert("Tenez aventurier voici "+supprimer+"\n\nVous avez Obtenu : "+"'"+ supprimer+"'");
+
+    }
+
+    console.log(random);
+    console.log(PNJ.Item_To_Give);
+    
+}
+   
+    /*if ((random == PNJ.Item_To_Give[0]) && (i == 0)){
         
         alert("\nTien voici l'épée enflamée jeune aventurier ! \n\nVous avez recu une 'Epée enflammée' !");
         delete PNJ.Item_To_Give[0];
@@ -83,9 +83,9 @@ function GiveItem(){
 
         alert("\nJe n'ai plus d'objet pour toi jeune aventurier! \n\nIl est maintenant temps pour toi de partir a l'aventure ,tu ne crois pas ?");
 
-    }
+    }*/
 
-    console.log(i);
-    console.log(PNJ.Item_To_Give);
+    //console.log(i);
+    //console.log(PNJ.Item_To_Give);
 
-}
+//}
